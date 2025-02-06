@@ -1,0 +1,22 @@
+# Latex Automatically clean-up files
+.aux 
+.bit 
+.blg 
+.bbl 
+.lof 
+.log 
+.lot 
+.glo 
+.glx 
+.gxg 
+.gxs 
+.idx 
+.ilg 
+.ind 
+.out 
+.url 
+.svn 
+.toc
+
+# Other unneeded Latex files
+*.pdf

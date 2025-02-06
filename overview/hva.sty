@@ -1,0 +1,119 @@
+% !TeX spellcheck = en_US
+
+\ProvidesPackage{hva}
+
+% packages
+\usepackage[english]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage{pdfpages} % Enables the inclusion of external PDF
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{hyperref} % Automatically adds links and bookmarks
+
+% packages config
+\graphicspath{
+	{./../images/}, % images shared across projects
+	{./images/},    % images specific to this project
+}
+
+% clear default title page
+\title{}
+\author{}
+\date{}
+
+\makeatletter
+	% title
+	\newcommand\@titleMain{}
+	\newcommand\titleMain[1]{\renewcommand\@titleMain{#1}}
+	\newcommand\@titleSub{}
+	\newcommand\titleSub[1]{\renewcommand\@titleSub{#1}}
+	
+	% author
+	\newcommand\@authorDate{}
+	\newcommand\authorDate[1]{\renewcommand\@authorDate{#1}}
+	\newcommand\@authorName{}
+	\newcommand\authorName[1]{\renewcommand\@authorName{#1}}
+	\newcommand\@authorId{}
+	\newcommand\authorId[1]{\renewcommand\@authorId{#1}}
+\makeatother
+
+% default title
+\titleMain{Minor Applied Quantum Computing}
+\titleSub{Quantum Mathematics notes}
+
+% default author info
+\authorDate{\today}
+\authorName{Thijs Dregmans}
+\authorId{500970258}
+
+\makeatletter
+	\title{%
+		{\huge \@titleMain}
+		\\
+		{\large \@titleSub}
+	}
+
+	\author{%
+		% Intentionally left blank
+	}
+
+	\date{%
+		\vfill
+		\begin{flushleft}
+			{\small
+				\begin{tabularx}{\textwidth}{rl}
+					\textbf{Date:} 			& \@authorDate\\
+					\\
+					\textbf{Name:} 				& \@authorName\\
+					\textbf{Student number:} 	& \@authorId\\
+				\end{tabularx}
+			}
+		\end{flushleft}
+	}
+\makeatother
+
+\setlength\headheight{33pt}
+\pagestyle{fancy}
+
+\fancypagestyle{plain}{
+	\lhead{%
+		\includegraphics[height=1cm]{hva-logo}
+	}
+	
+	\chead{%
+		% Intentionally left blank
+	}
+	
+	\rhead{%
+		% Intentionally left blank
+	}
+}
+
+\lhead{%
+	\includegraphics[height=1cm]{hva-logo}
+}
+
+\chead{%
+	% Intentionally left blank
+}
+
+\rhead{%
+	% Intentionally left blank
+}
+
+\newcommand{\pdfp}[1]{%
+	\includepdf[
+	pages=-,
+	scale=0.7,
+	frame,
+	]{./appendices/#1}
+}
+
+\newcommand{\pdfpa}[1]{%
+	\includepdf[
+	pages=-,
+	scale=0.95,
+	frame,
+	]{./appendices/#1}
+}
