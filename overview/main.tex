@@ -244,4 +244,18 @@
     Outer product: \(\vec{a} \cdot \vec{b}^\dagger = | a \rangle\langle b |\) \newline
     }
 
+    \section*{Eigenvectors and eigenvalues}
+
+    \paragraph{
+    To calculate the the eigenvectors and eigenvalues of a matrix, use the following steps:
+    }
+
+    \begin{itemize}
+        \item Set that \(Det(M - \lambda I) = 0\)
+        \item Insert matrix and calculate the resulting quadratic formula in the format of \(a \lambda^2 + b \lambda + c = 0\). You know that in a matrix \(M = \begin{bmatrix} m_1 & m_2 \\ m_3 & m_4 \end{bmatrix}\) where \(Det(M - \lambda I) = 0\) it is true that \((m_1*m_4) - (m_2*m_3) = 0\).
+        \item Calculate the eigen values by using the abc-formula.
+        \item State that \(\begin{bmatrix} m_1 & m_2 \\ m_3 & m_4 \end{bmatrix} \begin{bmatrix} x \\y \end{bmatrix} = \lambda_1 \begin{bmatrix} x \\ y\end{bmatrix}\) and \(\begin{bmatrix} m_1 & m_2 \\ m_3 & m_4 \end{bmatrix} \begin{bmatrix} x \\y \end{bmatrix} = \lambda_2 \begin{bmatrix} x \\ y\end{bmatrix}\)
+        \item calculate the eigen vectors by calculating \(\begin{bmatrix} x \\ y\end{bmatrix}\).
+    \end{itemize}
+
 \end{document}
