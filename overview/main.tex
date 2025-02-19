@@ -2,6 +2,7 @@
 
 \documentclass[11pt]{report}
 \usepackage{./hva}
+\usepackage{amsmath}
 
 % packages
 \usepackage[
@@ -12,15 +13,235 @@
 
 \begin{document}
 	\maketitle
-	\tableofcontents
+	% \tableofcontents
 	
-	\chapter{Probability}
-	\chapter{Vectors}
-	\chapter{Matrices}
-	\chapter{Complex numbers}
+	\chapter*{Introduction}
 
     \paragraph{
-    [to be writen later on]
+    This document is a overview of the Quantum Mathematics course. Written by Thijs Dregmans, student Technische Informatica (Computer Science) at the Rotterdam University of Applied Sciences. This course is part of the Applied Quantum Computing minor at the Amsterdam University of Applied Sciences.
+    }
+
+    \paragraph{
+    The 4 chapters are \ref{Probability} about probabilities, \ref{Vectors} about vectors, \ref{Matrices} about matrices and \ref{ComplexNumbers} about complex numbers.
+    }
+	
+    \chapter{Probability}\label{Probability}
+
+    \paragraph{
+    The most important formula when handling probabilities is \[P(A) = \frac{k}{n}\] \(P\) is the resulting probability. \(A\) is a predicate that describes what we are calculating the probabilities of occurring for. \(k\) is the number of times A occurs. \(n\) is the total times.
+    }
+
+    \section*{Examples}
+
+    \paragraph{
+    Calculating the probabilities of throwing an 4 with a fair dice \(d\): \[P({d=4}) = \frac{k}{n} = \frac{1}{6} \approx 0.167\]
+    }
+
+    \paragraph{
+    Calculating the probabilities of throwing two fair dices \(d_1, d_2\) both 2: \[P({d_1=2, d_2=2}) = \frac{k}{n} = \frac{1}{6} * \frac{1}{6} = \frac{1}{36} \approx 0.0278\]
+    }
+
+    \paragraph{
+    Calculating the probabilities of throwing three fair dices \(d_1, d_2, d_3\) without duplicates: \[P({d_1 \neq d_2 \neq d_3}) = \frac{k}{n} = \frac{6}{6} * \frac{5}{6} * \frac{4}{6} = \frac{6 * 5 * 4}{6 * 6 * 6} = \frac{5 * 4}{6 * 6} = \frac{20}{36} = \frac{5}{9} \approx 0.556\]
+    }
+    
+	\chapter{Vectors}\label{Vectors}
+
+    \paragraph{
+    A vector is a parameter with a size and a direction. For example, speed, movement. Normal regular numbers are actually also vectors, but have only one dimension (1D). Vectors are multi-dimensional 'numbers'. The most important operations that can be done with vectors, are addition, multiplication and dot-product.
+    }
+
+    \begin{center}
+        \(\vec{a} = \begin{bmatrix}
+        24\\
+        5
+    \end{bmatrix}\),
+    \(\vec{b} = \begin{bmatrix}
+        -3\\
+        5
+    \end{bmatrix}\),
+    \(\vec{c} = \begin{bmatrix}
+        10\\
+        5\\
+        86
+    \end{bmatrix}\)
+    \end{center}
+
+    \paragraph{
+    Two vectors can only be added when they have the same size. For example \(\vec{a}\) and \(\vec{b}\) can be added, but \(\vec{a}\) and \(\vec{c}\) not. \[\vec{a} + \vec{b} = \begin{bmatrix}
+        24\\
+        5
+    \end{bmatrix} +
+    \begin{bmatrix}
+        -3\\
+        5
+    \end{bmatrix} = \begin{bmatrix}
+        24 +-3\\
+        5+5
+    \end{bmatrix} = \begin{bmatrix}
+        21\\
+        10
+    \end{bmatrix}\]
+    }
+
+    \paragraph{
+    A vector can also have a scalar. This is a term that applies to all the 'items' of the vector: \[ 5*\vec{a} = 5 * \begin{bmatrix}
+        24\\
+        5
+    \end{bmatrix} = \begin{bmatrix}
+        5 * 24\\
+        5 * 5
+    \end{bmatrix} = \begin{bmatrix}
+        120\\
+        25
+    \end{bmatrix}\]
+    }
+
+    \paragraph{
+    It possible to calculate the dot product of two vectors: \[\vec{a} \cdot \vec{b} = \begin{bmatrix}
+        24\\
+        5
+    \end{bmatrix} \cdot 
+    \begin{bmatrix}
+        -3\\
+        5
+    \end{bmatrix} = (24 * -3) + (5 * 5) = -72 + 25 = -47\]
+    }
+
+    \paragraph{
+    The length of \(\vec{c}\) can be calulated: \[\lvert\lvert\vec{c}\lvert\lvert = \sqrt{\vec{c^T} \cdot \vec{c}} = \sqrt{\begin{bmatrix}
+        10&
+        5&
+        86
+    \end{bmatrix} \cdot \begin{bmatrix}
+        10\\
+        5\\
+        86
+    \end{bmatrix}} = \sqrt{10^2 + 5^2 + 86^2 } = \sqrt{100 + 25 + 7396} = \sqrt{7521}\]
+    }
+
+    \paragraph{
+    Note that the length is the square root of the dot product with itself. 
+    }
+
+    \paragraph{
+    Vectors are actually matrices with only one column. See \ref{Matrices} for more information. 
+    }
+    
+	\chapter{Matrices}\label{Matrices}
+
+    \paragraph{
+    A matrix is a set of vectors of the same size, ordered in a grid. It is like a table. In math, it can be used to represent all kinds of systems. 
+    }
+
+    \begin{center}
+        \(M_1 = \begin{bmatrix}
+        24 & -3 & 0\\
+        5 & 5 & -12
+    \end{bmatrix}\),
+    \(M_2 = \begin{bmatrix}
+        24 & -3 & 0 & 4\\
+        5 & 5 & -12 & 0\\
+        2 & 8 & 0 & 0 \\
+        -2 & -1 & 9 & 2\\
+    \end{bmatrix}\),
+    \(M_3 = \begin{bmatrix}
+        2 & 8 & 16\\
+        -1 & -2 & -6\\\
+        0 & 3 & 0
+    \end{bmatrix}\)
+    \end{center}
+
+    \paragraph{
+    A matrix can be flipped. This is called the transpose of a matrix: \[(M_1)^T = (\begin{bmatrix}
+        24 & -3 & 0\\
+        5 & 5 & -12
+    \end{bmatrix})^T = \begin{bmatrix}
+        24 & 5\\
+        -3 & 5\\
+        0 & -12\\
+    \end{bmatrix}\]
+    }
+
+     \paragraph{
+    The trace of a matrix is the sum of the diagonal: \[tr(M_2) = tr(\begin{bmatrix}
+        24 & -3 & 0 & 4\\
+        5 & 5 & -12 & 0\\
+        2 & 8 & 0 & 0 \\
+        -2 & -1 & 9 & 2\\
+    \end{bmatrix}) = 24 + 5 + 0 + 2 = 31\]
+    }
+
+    \paragraph{
+    The trace can only be taken of a matrix that has as much columns as rows: \[tr(M_3) = ND\]
+    }
+
+    \paragraph{
+    Matrices can be multiplied if and only if the number of columns of the first the same is as the number of rows of the second: \begin{multline}M_1 \times M_3 = \begin{bmatrix}
+        24 & -3 & 0\\
+        5 & 5 & -12
+    \end{bmatrix} \times \begin{bmatrix}
+        2 & 8 & 16\\
+        -1 & -2 & -6\\
+        0 & 3 & 0
+    \end{bmatrix} \\ = \begin{bmatrix}
+        24 * 2 + (-3)*(-1) + 0*0 & 24 * 8 + (-3) * (-2) + 0 *3 & 24 * 16 + (-3)*(-6)+0*0\\
+        5 * 2 + 5 * (-1) + (-12) * 0 & 5 * 8 + 5 * (-2) + (-12) * 3 & 5 * 16 + 5 * (-6) + (-12) * 0 
+    \end{bmatrix} \\ = \begin{bmatrix}
+        51 & 198 & 402\\
+        5 & -6 & 50
+    \end{bmatrix} \end{multline}
+    }
+
+    \paragraph{
+    However, \(M_3 \times M_1 = ND\)
+    }
+
+    \paragraph{
+    To matrices, an tensor product (kronecker product, \(\otimes\)) can also be applied: \[A\otimes(B + C) = A\otimes B + A\otimes C\]
+    \[(A + B)\otimes C = A\otimes C + B\otimes C\] 
+    \[(kA)\otimes B = A \otimes (kB) = k(A\otimes B)\] 
+    \[(A\otimes B) \otimes C = A \otimes(B\otimes C)\] 
+    }
+    
+    
+	\chapter{Complex numbers}\label{ComplexNumbers}
+
+    \paragraph{In the complex plane, the rules are somewhat different. Say \(\vec{a} = \begin{bmatrix} i \\ 0 \end{bmatrix}\) 
+    }
+
+    \paragraph{
+    Let's calculate the length of \(\vec{a}\):
+    \[\lvert\lvert\vec{a}\lvert\lvert\ = \sqrt{\vec{a}^T \cdot \vec{a} } = \sqrt{\begin{bmatrix} i & 0 \end{bmatrix} \cdot \begin{bmatrix} i \\ 0 \end{bmatrix}} = \sqrt{i^2}\]
+    }
+
+    \paragraph{
+    \(i^2\) is in the complex plane. To get the real length, we have to use the complex conjugate: \(\bar{\vec{a} } = \begin{bmatrix} -i \\ 0 \end{bmatrix}\) All complex factors invert; negative becomes positive, and postive becomes negative.
+    }
+
+    \paragraph{
+    Let's calculate the length of \(\vec{a}\), now using the complex conjugate:
+    \[\lvert\lvert\vec{a}\lvert\lvert\ = \sqrt{\bar{\vec{a}^T} \cdot \vec{a} } = \sqrt{\begin{bmatrix} -i & 0 \end{bmatrix} \cdot \begin{bmatrix} i \\ 0 \end{bmatrix}} = \sqrt{-i^2} = 1\]
+    }
+
+    \paragraph{
+    There are some rules about notations: \newline
+    Hermitian conjugate: \(\vec{a}^\dagger = \bar{\vec{a}^T}\) \newline
+    Inner product: \(\vec{a}^\dagger \cdot \vec{b}\) \newline
+    Outer product: \(\vec{a} \cdot \vec{b}^\dagger\) \newline
+    }
+
+    \newpage
+
+    \section{Dirac notation}
+
+    \paragraph{
+    A certain notation is used for vectors: \[ \vec{a} = |a\rangle\] \[ \vec{a}^\dagger = \langle a |\]}
+
+    \paragraph{
+    There are some rules about notations: \newline
+    Inner product: \(\vec{a}^\dagger \cdot \vec{b} = \langle a | b \rangle\) \newline
+    Outer product: \(\vec{a} \cdot \vec{b}^\dagger = | a \rangle\langle b |\) \newline
     }
 
 \end{document}
